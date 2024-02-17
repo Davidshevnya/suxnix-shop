@@ -1,0 +1,229 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+<link rel="stylesheet" href="{% static "css/animate.min.css" %}">
+<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+<link rel="stylesheet" href="{% static "css/fontawesome-all.min.css" %}">
+<link rel="stylesheet" href="{% static "css/flaticon.css" %}">
+<link rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
+<link rel="stylesheet" href="{% static "css/slick.css" %}">
+<link rel="stylesheet" href="{% static "css/default.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static "css/responsive.css" %}">
+{% endblock css %}
+        
+
+
+        <!-- main-area -->
+        {% block content %}
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb-area breadcrumb-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="breadcrumb-content text-center">
+                            <h2 class="title">Our Shop</h2>
+                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item trail-item trail-begin">
+                                        <a href="index.html"><span>Home</span></a>
+                                    </li>
+                                    <li class="breadcrumb-item trail-item trail-end"><span>Our Shop</span></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-shape one"><img src="{% static "img/others/video_shape01.png" %}" alt="shape"></div>
+            <div class="video-shape two"><img src="{% static "img/others/video_shape02.png" %}" alt="shape"></div>
+        </section>
+        <!-- breadcrumb-area-end -->
+
+        <div class="inner-shop-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-3 col-lg-4 col-md-8 col-sm-8">
+                        <aside class="shop-sidebar">
+                            <div class="widget">
+                                <h4 class="sidebar-title">Filter by Price</h4>
+                                <div class="price_filter">
+                                    <div id="slider-range"></div>
+                                    <div class="price_slider_amount">
+                                        <span>Price :</span>
+                                        <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                        <input type="submit" class="btn" value="Filter">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <h4 class="sidebar-title">CATEGORIES</h4>
+                                <ul class="categories-list list-wrap">
+                                    <li><a href="shop.html">ACCESSORIES <i class="fas fa-angle-double-right"></i></a></li>
+                                    <li><a href="shop.html">gym supplement <i class="fas fa-angle-double-right"></i></a></li>
+                                    <li><a href="shop.html">man gym <i class="fas fa-angle-double-right"></i></a></li>
+                                    <li><a href="shop.html">fitness gym <i class="fas fa-angle-double-right"></i></a></li>
+                                    <li><a href="shop.html">weight loss <i class="fas fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="widget">
+                                <h4 class="sidebar-title">LATEST PRODUCTS</h4>
+                                <div class="lp-post-list">
+                                    <ul class="lp-post-item list-wrap">
+                                        <li>
+                                            <div class="lp-post-thumb">
+                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb01.png" %}" alt="img"></a>
+                                            </div>
+                                            <div class="lp-post-content">
+                                                <ul class="lp-post-rating list-wrap">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="title"><a href="shop-details.html">multi vitamin C</a></h4>
+                                                <span class="price">$29.00</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lp-post-thumb">
+                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb02.png" %}" alt="img"></a>
+                                            </div>
+                                            <div class="lp-post-content">
+                                                <ul class="lp-post-rating list-wrap">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="title"><a href="shop-details.html">B-complex Zinc</a></h4>
+                                                <span class="price">$36.00</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lp-post-thumb">
+                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb03.png" %}" alt="img"></a>
+                                            </div>
+                                            <div class="lp-post-content">
+                                                <ul class="lp-post-rating list-wrap">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="title"><a href="shop-details.html">Protein Powder</a></h4>
+                                                <span class="price">$19.99</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <h4 class="sidebar-title">Product tags</h4>
+                                <ul class="Product-tag-list list-wrap">
+                                    <li><a href="shop.html">Bone Support</a></li>
+                                    <li><a href="shop.html">Energy Support</a></li>
+                                    <li><a href="shop.html">Hair</a></li>
+                                    <li><a href="shop.html">Multivitamins</a></li>
+                                    <li><a href="shop.html">Pre-Workout</a></li>
+                                    <li><a href="shop.html">Protein</a></li>
+                                    <li><a href="shop.html">Skin & Nails</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-md-12 col-sm-8 shop-sidebar-pad order-first">
+                        <div class="shop-top-wrap">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="shop-top-left">
+                                        <p class="woocommerce-result-count shop-show-result">Showing 1-6 of 18 results</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="shop-top-right selection">
+                                        <form class="woocommerce-ordering mb-0" method="get">
+                                            <select id="shortBy" name="orderby" class="orderby form-select" aria-label="Shop order">
+                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                <option value="popularity">Sort by popularity</option>
+                                                <option value="rating">Sort by average rating</option>
+                                                <option value="date">Sort by latest</option>
+                                                <option value="price">Sort by price: low to high</option>
+                                                <option value="price-desc">Sort by price: high to low</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suxnix-shop-product-main">
+                            <div class="row">
+                                {% for good in goods %}
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="home-shop-item inner-shop-item">
+                                            <div class="home-shop-thumb">
+                                                <a href="{{ good.get_absolute_url }}">
+                                                    <img src="{{ good.image.url }}" alt="img">
+                                                    <span class="discount"> -15%</span>
+                                                </a>
+                                            </div>
+                                            
+                                            <div class="home-shop-content">
+                                                <div class="shop-item-cat"><a href="#">Nutrition</a></div>
+                                                <h4 class="title"><a href="shop-details.html">{{ good.name }}</a></h4>
+                                                <span class="home-shop-price">${{ good.price }}</span>
+                                                <div class="home-shop-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                    <span class="total-rating">(20)</span>
+                                                </div>
+                                                <div class="shop-content-bottom">
+                                                    <a href="#" class="cart"><i class="flaticon-shopping-cart-1"></i></a>
+                                                    <a href="#" class="btn btn-two">Buy Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                
+                                
+                            <div class="pagination-wrap">
+                                <ul class="list-wrap">
+                                    <li class="prv-next">
+                                        <a href="blog.html"><i class="fas fa-angle-double-left"></i></a>
+                                    </li>
+                                    <li><a href="blog.html">1</a></li>
+                                    <li><a href="blog.html" class="current">2</a></li>
+                                    <li><a href="blog.html">3</a></li>
+                                    <li><a href="blog.html">...</a></li>
+                                    <li><a href="blog.html">10</a></li>
+                                    <li class="prv-right">
+                                        <a href="blog.html"><i class="fas fa-angle-double-right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+        <!-- main-area-end -->
+
+
+
+</html>
