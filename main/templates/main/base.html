@@ -49,32 +49,17 @@
                         <div class="menu-wrap">
                             <nav class="menu-nav">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{% static "img/logo/logo.png" %}" alt="Logo"></a>
+                                    <a href="{% url "main:index" %}"><img src="{% static "img/logo/logo.png" %}" alt="Logo"></a>
                                 </div>
                                 <div class="navbar-wrap main-menu d-none d-xl-flex">
                                     <ul class="navigation">
-                                        <li class="active menu-item-has-children"><a href="#home" class="section-link">Home</a>
-                                            <ul class="sub-menu">
-                                                <li class="active"><a href="index.html">Home One</a></li>
-                                                <li><a href="index-2.html">Home Two</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{% url "main:index" %}" class="section-link">Home</a></li>
                                         <li><a href="#features" class="section-link">Features</a></li>
                                         <li><a href="#paroller" class="section-link">Product</a></li>
                                         <li><a href="#ingredient" class="section-link">Ingredient</a></li>
                                         <li><a href="#pricing" class="section-link">Pricing</a></li>
-                                        <li class="menu-item-has-children"><a href="shop.html">Shop</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop.html">Our Shop</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#news" class="section-link">News</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html">Our Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{% url "shop:good_list" %}">Shop</a></li>
+                                        
                                         <li><a href="contact.html">contacts</a></li>
                                     </ul>
                                 </div>
@@ -133,7 +118,7 @@
                             <nav class="menu-box">
                                 <div class="close-btn"><i class="fas fa-times"></i></div>
                                 <div class="nav-logo">
-                                    <a href="index.html"><img src="{% static "img/logo/logo.png" %}" alt=""></a>
+                                    <a href="{% url "main:index" %}"><img src="{% static "img/logo/logo.png" %}" alt=""></a>
                                 </div>
                                 <div class="menu-outer">
                                     <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -252,7 +237,7 @@
                             <div class="footer-widget">
                                 <div class="footer-about">
                                     <div class="footer-logo logo">
-                                        <a href="index.html"><img src="{% static "img/logo/white_logo.png" %}" alt="Logo"></a>
+                                        <a href="{% url "main:index" %}"><img src="{% static "img/logo/white_logo.png" %}" alt="Logo"></a>
                                     </div>
                                     <div class="footer-text">
                                         <p>Making beauty especially relating complot especial common questions tend to recur through posts or queries standards vary orem donor command tei.</p>
@@ -274,7 +259,7 @@
                                     <li><a href="#">Affiliate Program</a></li>
                                     <li><a href="#">Customer Spotlight</a></li>
                                     <li><a href="#">Reseller Program</a></li>
-                                    <li><a href="shop.html">Our Shop</a></li>
+                                    <li><a href="{% url "shop:good_list" %}">Our Shop</a></li>
                                     <li><a href="#">Price & Plans</a></li>
                                 </ul>
                             </div>
@@ -284,7 +269,7 @@
                                 <h4 class="fw-title">Support</h4>
                                 <ul class="list-wrap">
                                     <li><a href="#">Knowledge Base</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
+            
                                     <li><a href="#">Developer API</a></li>
                                     <li><a href="#">FAQ</a></li>
                                     <li><a href="#">Team</a></li>
