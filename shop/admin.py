@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Good, Tag, Protein
+from .models import Category, Good
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -14,5 +14,4 @@ class GoodAdmin(admin.ModelAdmin):
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Good, GoodAdmin)
-admin.site.register(Tag)
-admin.site.register(Protein)
+

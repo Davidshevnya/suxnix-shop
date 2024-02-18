@@ -17,16 +17,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse("shop:good_list_by_category", args=[self.slug])
     
-class Tag(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
 
-    class Meta:
-        ordering = ("name", )
-        verbose_name = "Tag"
-        verbose_name_plural = "Tags"
-        
-    def __str__(self):
-        return self.name
 
 class Good(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="goods")
@@ -52,24 +43,6 @@ class Good(models.Model):
     def __str__(self):
         return self.name
 
-class Protein(models.Model):
-    good = models.OneToOneField(Good, on_delete=models.CASCADE, related_name='protein_info')
-    calories = models.DecimalField(max_digits=6, decimal_places=2)
-    total_fat = models.CharField(max_length=20)
-    saturated_fat = models.CharField(max_length=20)
-    cholesterol = models.CharField(max_length=20)
-    total_carbohydrate = models.CharField(max_length=20)
-    protein = models.CharField(max_length=20)
-    total_sugars = models.CharField(max_length=20)
-    sodium = models.CharField(max_length=20)
-    calcium = models.CharField(max_length=20)
-    potassium = models.CharField(max_length=20)
 
-    class Meta:
-        verbose_name = 'Protein'
-        verbose_name_plural = 'Proteins'
-
-    def __str__(self):
-        return f"{self.good.name} - Protein Info"
 
     

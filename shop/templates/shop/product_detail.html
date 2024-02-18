@@ -121,11 +121,11 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
                         </li>
-                        {% if protein_info %}
+                        
                         <li class="nav-item">
                             <a href="#" class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" role="tab" aria-controls="information" aria-selected="false">Additional information</a>
                         </li>
-                        {% endif %}
+                        
                        
                         <li class="nav-item">
                             <a href="#" class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (3)</a>
@@ -138,55 +138,7 @@
                                 {{ good.description }}
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
-                            <div class="product-desc-content">
-                                <table class="table table-sm">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Calories</th>
-                                        <td>{{ protein_info.calories }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Total Fat</th>
-                                        <td>{{ protein_info.total_fat }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Saturated Fat</th>
-                                        <td>{{ protein_info.saturated_fat }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Cholesterol</th>
-                                        <td>{{ protein_info.cholesterol }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Total Carbohydrate</th>
-                                        <td>{{ protein_info.total_carbohydrate }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Protein</th>
-                                        <td>{{ protein_info.protein }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Total Sugars</th>
-                                        <td>{{ protein_info.total_sugars }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sodium</th>
-                                        <td>{{ protein_info.sodium }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Calcium</th>
-                                        <td>{{ protein_info.calcium }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Potassium</th>
-                                        <td>{{ protein_info.potassium }}</td>
-                                    </tr>
-                                </tbody>
-                                
-                                </table>
-                            </div>
-                        </div>
+                        
                         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                             <div class="product-desc-content">
                                 <div class="reviews-comment">

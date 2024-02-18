@@ -23,14 +23,12 @@ def good_list(request, category_slug=None):
                            "page_obj": page_obj})
     
 def good_detail(request, pk, slug):
-    protein_info = None
+
     good = get_object_or_404(Good,
                                 id=pk,
                                 slug=slug,
                                 available=True)
-    if good.protein_info:
-        protein_info = good.protein_info
+
     return render(request,
                   'shop/product_detail.html',
-                  {'good': good, 
-                   "protein_info": protein_info})
+                  {'good': good})
