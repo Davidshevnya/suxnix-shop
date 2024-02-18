@@ -29,15 +29,13 @@ class Tag(models.Model):
         return self.name
 
 class Good(models.Model):
-    category = models.ManyToManyField(Category, related_name="goods")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="goods")
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200)
     image = models.ImageField(upload_to='goods/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    type_good = models.CharField(max_length=64)
     brand = models.CharField(max_length=64)
-    tag = models.ManyToManyField(Tag)
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -53,5 +51,25 @@ class Good(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+class Protein(models.Model):
+    good = models.OneToOneField(Good, on_delete=models.CASCADE, related_name='protein_info')
+    calories = models.DecimalField(max_digits=6, decimal_places=2)
+    total_fat = models.CharField(max_length=20)
+    saturated_fat = models.CharField(max_length=20)
+    cholesterol = models.CharField(max_length=20)
+    total_carbohydrate = models.CharField(max_length=20)
+    protein = models.CharField(max_length=20)
+    total_sugars = models.CharField(max_length=20)
+    sodium = models.CharField(max_length=20)
+    calcium = models.CharField(max_length=20)
+    potassium = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name = 'Protein'
+        verbose_name_plural = 'Proteins'
+
+    def __str__(self):
+        return f"{self.good.name} - Protein Info"
+
     

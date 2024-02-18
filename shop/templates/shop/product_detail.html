@@ -1,48 +1,18 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% block title  %}Suxnix - Health Supplement Landing Page{% endblock  %}
-
-
-<!-- CSS here -->
-{% block css %} 
-<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-<link rel="stylesheet" href="{% static "css/animate.min.css" %}">
-<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
-<link rel="stylesheet" href="{% static "css/fontawesome-all.min.css" %}">
-<link rel="stylesheet" href="{% static "css/flaticon.css" %}">
-<link rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
-<link rel="stylesheet" href="{% static "css/slick.css" %}">
-<link rel="stylesheet" href="{% static "css/default.css" %}">
-<link rel="stylesheet" href="{% static "css/style.css" %}">
-<link rel="stylesheet" href="{% static "css/responsive.css" %}">
-{% endblock css %}   
+{% block title  %}{{ good.brand }} - {{ good.name }}{% endblock  %}
+  
 
 
 
 <!-- main-area -->
 {% block content %}
     <!-- breadcrumb-area -->
-    <section class="breadcrumb-area breadcrumb-bg">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-10">
-                <div class="breadcrumb-content text-center">
-                    <h2 class="title">Shop Details</h2>
-                    <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item trail-item trail-begin">
-                                <a href="index.html"><span>Home</span></a>
-                            </li>
-                            <li class="breadcrumb-item trail-item trail-end"><span>Shop Details</span></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="video-shape one"><img src="assets/img/others/video_shape01.png" alt="shape"></div>
-    <div class="video-shape two"><img src="assets/img/others/video_shape02.png" alt="shape"></div>
-</section>
+   
+    
+    <div class="video-shape one"><img src="{% static "img/others/video_shape01.png" %}" alt="shape"></div>
+    <div class="video-shape two"><img src="{% static "img/others/video_shape02.png" %}" alt="shape"></div>
+
 <!-- breadcrumb-area-end -->
 
 <!-- shop-details-area -->
@@ -119,14 +89,7 @@
                         
                         <h5 class="stock-status">- {% if good.stock > 0 %}IN Stock{% else %}NOT IN Stock {% endif %} ({{ good.stock }})</h5>
                     </div>
-                    <p>{{ good.description }}</p>
-                    <div class="inner-shop-details-list">
-                        <ul class="list-wrap">
-                            <li>Type : <span>{{ good.type }}</span></li>
-                            <li>XPD : <span>19 Dec 2022</span></li>
-                            <li>CO : <span>Suxnix</span></li>
-                        </ul>
-                    </div>
+
                     <div class="inner-shop-perched-info">
                         <div class="sd-cart-wrap">
                             <form action="#">
@@ -139,12 +102,12 @@
                         <a href="shop-details.html" class="wishlist-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist"><i class="far fa-heart"></i></a>
                     </div>
                     <div class="inner-shop-details-bottom">
-                        <span><span>Tag : {% for tag in good.tag.all %}<a href="#">{{tag}}</a>{% endfor %}</span></span>
+                        
                         <span>
-                            <span>Categories :
-                            {% for category in good.category.all %}
-                            <a href="#">{{ category }}</a>
-                            {% endfor %}
+                            <span>Category:
+                            
+                            <a href="{{ good.category.get_absolute_url }}">{{ good.category}}</a>
+    
                         </span>
                         </span>
                     </div>
@@ -158,9 +121,12 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
                         </li>
+                        {% if protein_info %}
                         <li class="nav-item">
                             <a href="#" class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" role="tab" aria-controls="information" aria-selected="false">Additional information</a>
                         </li>
+                        {% endif %}
+                       
                         <li class="nav-item">
                             <a href="#" class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (3)</a>
                         </li>
@@ -169,66 +135,55 @@
                         <div class="tab-pane fade show active" id="description" role="tabpanel"
                             aria-labelledby="description-tab">
                             <div class="product-desc-content">
-                                <h4 class="title">The true strength of Suxnix :</h4>
-                                <p>Whey Protein Isolates (WPIs) are the purest form of whey protein that currently exists. WPIs are costly to use, but rate among the best proteins that money can buy. That’s why they’re the first ingredient you read on the Gold Standard 100% Whey™ label. By using WPI as the primary ingredient along with premium ultra-filtered whey protein concentrate (WPC), we’re able to pack 24 grams of protein into every serving to support your muscle building needs after training. ON’attention to detail also extends to mixability. This superior quality powder has been instantized to mix easliy using a shaker cup or just a glass and spoon. There’s no doubt that this is the standard by which all other whey proteins are measured.</p>
-                                <h4 class="title">Suxnix the basics :</h4>
-                                <ul class="product-desc-list list-wrap">
-                                    <li>82% Protein by Weight (24g of Protein Per 31.5g Serving Size).</li>
-                                    <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                                    <li>Whey Protein Micro-functions from Whey Protein Isolate and Ultra-Filtered Whey Protein Concentrate.</li>
-                                    <li>Over 4g of Naturally Occurring Glutamine & Glutamic Acid in Each Serving.</li>
-                                    <li>More than 5g of the Naturally Occurring Branched Chain Amino Acids (BCAAs) Leucine, Isoleucine, and Valine in Each Serving.</li>
-                                    <li>The “Gold Standard” for Protein Quality.</li>
-                                    <li>Banned Substance Tested Protein</li>
-                                    <li>French Vanilla Creme Flavored Whey Protein Powder</li>
-                                </ul>
+                                {{ good.description }}
                             </div>
                         </div>
                         <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
                             <div class="product-desc-content">
                                 <table class="table table-sm">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Calories</th>
-                                            <td>110</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Total Fat</th>
-                                            <td>1kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Saturated Fat</th>
-                                            <td>0.5g</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Cholesterol</th>
-                                            <td>40mg</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Total Carbohydrate</th>
-                                            <td>2g</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Protein</th>
-                                            <td>24g</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Total Sugars</th>
-                                            <td>2g</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sodium</th>
-                                            <td>100mg</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Calcium</th>
-                                            <td>140 mg</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Potassium</th>
-                                            <td>160 mg</td>
-                                        </tr>
-                                    </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Calories</th>
+                                        <td>{{ protein_info.calories }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total Fat</th>
+                                        <td>{{ protein_info.total_fat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Saturated Fat</th>
+                                        <td>{{ protein_info.saturated_fat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Cholesterol</th>
+                                        <td>{{ protein_info.cholesterol }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total Carbohydrate</th>
+                                        <td>{{ protein_info.total_carbohydrate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Protein</th>
+                                        <td>{{ protein_info.protein }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total Sugars</th>
+                                        <td>{{ protein_info.total_sugars }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sodium</th>
+                                        <td>{{ protein_info.sodium }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Calcium</th>
+                                        <td>{{ protein_info.calcium }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Potassium</th>
+                                        <td>{{ protein_info.potassium }}</td>
+                                    </tr>
+                                </tbody>
+                                
                                 </table>
                             </div>
                         </div>

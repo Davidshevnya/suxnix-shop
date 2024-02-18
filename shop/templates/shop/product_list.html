@@ -1,45 +1,25 @@
 {% extends "main/base.html" %}
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-<link rel="stylesheet" href="{% static "css/animate.min.css" %}">
-<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
-<link rel="stylesheet" href="{% static "css/fontawesome-all.min.css" %}">
-<link rel="stylesheet" href="{% static "css/flaticon.css" %}">
-<link rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
-<link rel="stylesheet" href="{% static "css/slick.css" %}">
-<link rel="stylesheet" href="{% static "css/default.css" %}">
-<link rel="stylesheet" href="{% static "css/style.css" %}">
-<link rel="stylesheet" href="{% static "css/responsive.css" %}">
-{% endblock css %}
+
         
 
 
         <!-- main-area -->
         {% block content %}
         <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg">
+
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="breadcrumb-content text-center">
-                            <h2 class="title">Our Shop</h2>
-                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item trail-item trail-begin">
-                                        <a href="index.html"><span>Home</span></a>
-                                    </li>
-                                    <li class="breadcrumb-item trail-item trail-end"><span>Our Shop</span></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                    
+                            <h2 class="title" align="center" > Suxnix - shop of power supplements. </h2>
+                            
+                    
                 </div>
             </div>
             <div class="video-shape one"><img src="{% static "img/others/video_shape01.png" %}" alt="shape"></div>
             <div class="video-shape two"><img src="{% static "img/others/video_shape02.png" %}" alt="shape"></div>
-        </section>
+
         <!-- breadcrumb-area-end -->
 
         <div class="inner-shop-area">
@@ -61,11 +41,16 @@
                             <div class="widget">
                                 <h4 class="sidebar-title">CATEGORIES</h4>
                                 <ul class="categories-list list-wrap">
-                                    <li><a href="shop.html">ACCESSORIES <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="shop.html">gym supplement <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="shop.html">man gym <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="shop.html">fitness gym <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="shop.html">weight loss <i class="fas fa-angle-double-right"></i></a></li>
+                                    {% for cat in categories %}
+                                        {% if cat == category %}
+                                        <li  ><a href="{{ cat.get_absolute_url }}">{{ cat }} <i class="fas fa-angle-double-right "></i></a><span class="bg-success d-block" style="border-radius: 1px; height: 2px; width: 100%;"></span></li>
+                                        
+                                        {% else %} <li> <a href="{{ cat.get_absolute_url }}">{{ cat }} <i class="fas fa-angle-double-right "></i></a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                   
+                                   
                                 </ul>
                             </div>
                             <div class="widget">
@@ -148,7 +133,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="shop-top-left">
-                                        <p class="woocommerce-result-count shop-show-result">Showing 1-6 of 18 results</p>
+                                        {% if page_obj.paginator.count < 1 %}
+                                        <p class="woocommerce-result-count shop-show-result">Showing {{ page_obj.paginator.count }} results</p>
+                                        {% else %}
+                                        <p class="woocommerce-result-count shop-show-result">Showing 1-6 of {{ page_obj.paginator.count }} results</p>
+                                        {% endif %}
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -169,7 +159,7 @@
                         </div>
                         <div class="suxnix-shop-product-main">
                             <div class="row">
-                                {% for good in goods %}
+                                {% for good in page_obj.object_list %}
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="home-shop-item inner-shop-item">
                                             <div class="home-shop-thumb">
@@ -181,7 +171,7 @@
                                             
                                             <div class="home-shop-content">
                                                 <div class="shop-item-cat"><a href="#">Nutrition</a></div>
-                                                <h4 class="title"><a href="shop-details.html">{{ good.name }}</a></h4>
+                                                <h4 class="title"><a href="{{ good.get_absolute_url }}">{{ good.name }}</a></h4>
                                                 <span class="home-shop-price">${{ good.price }}</span>
                                                 <div class="home-shop-rating">
                                                     <i class="fas fa-star"></i>
@@ -200,22 +190,35 @@
                                     </div>
                                 {% endfor %}
                                 
-                                
+                            {% if page_obj.has_other_pages %}
                             <div class="pagination-wrap">
                                 <ul class="list-wrap">
-                                    <li class="prv-next">
-                                        <a href="blog.html"><i class="fas fa-angle-double-left"></i></a>
-                                    </li>
-                                    <li><a href="blog.html">1</a></li>
-                                    <li><a href="blog.html" class="current">2</a></li>
-                                    <li><a href="blog.html">3</a></li>
-                                    <li><a href="blog.html">...</a></li>
-                                    <li><a href="blog.html">10</a></li>
-                                    <li class="prv-right">
-                                        <a href="blog.html"><i class="fas fa-angle-double-right"></i></a>
-                                    </li>
+                                    {% if page_obj.has_previous %}
+                                        <li class="prv-next">
+                                            <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a>
+                                        </li>
+                                    {% endif %}
+                                    
+                                    {% for p in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == p %}
+                                    <li><a href="?page={{ p }}" class="current">{{p}}</a></li>
+                                    {% else %}
+                                    <li><a href="?page={{ p }}">{{p}}</a></li>
+                                    {% endif %}
+                                        
+        
+                        
+                                    {% endfor %}
+                                    {% if page_obj.has_next %}
+                                        <li class="prv-right">
+                                            <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-angle-double-right"></i></a>
+                                        </li>
+                                    {% endif %}
+                                    
                                 </ul>
                             </div>
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
