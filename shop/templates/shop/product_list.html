@@ -53,13 +53,15 @@
                                    
                                 </ul>
                             </div>
+                            {% if latest_products %}
                             <div class="widget">
                                 <h4 class="sidebar-title">LATEST PRODUCTS</h4>
                                 <div class="lp-post-list">
                                     <ul class="lp-post-item list-wrap">
-                                        <li>
+                                        {% for product in latest_products %}
+                                            <li>
                                             <div class="lp-post-thumb">
-                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb01.png" %}" alt="img"></a>
+                                                <a href="{{ product.url }}"><img src="{{ product.image_url }}" alt="img"></a>
                                             </div>
                                             <div class="lp-post-content">
                                                 <ul class="lp-post-rating list-wrap">
@@ -71,49 +73,16 @@
                                                         <i class="fas fa-star"></i>
                                                     </li>
                                                 </ul>
-                                                <h4 class="title"><a href="shop-details.html">multi vitamin C</a></h4>
-                                                <span class="price">$29.00</span>
+                                                <h4 class="title"><a href="{{ product.url }}">{{ product.title }} </a></h4>
+                                                <span class="price">${{ product.price }}</span>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="lp-post-thumb">
-                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb02.png" %}" alt="img"></a>
-                                            </div>
-                                            <div class="lp-post-content">
-                                                <ul class="lp-post-rating list-wrap">
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                </ul>
-                                                <h4 class="title"><a href="shop-details.html">B-complex Zinc</a></h4>
-                                                <span class="price">$36.00</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="lp-post-thumb">
-                                                <a href="shop-details.html"><img src="{% static "img/products/home_shop_thumb03.png" %}" alt="img"></a>
-                                            </div>
-                                            <div class="lp-post-content">
-                                                <ul class="lp-post-rating list-wrap">
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                </ul>
-                                                <h4 class="title"><a href="shop-details.html">Protein Powder</a></h4>
-                                                <span class="price">$19.99</span>
-                                            </div>
-                                        </li>
-                                    </ul>
+
+                                        {% endfor %}
+                                                                            </ul>
                                 </div>
                             </div>
+                            {% endif %}
                             <div class="widget">
                                 <h4 class="sidebar-title">Product tags</h4>
                                 <ul class="Product-tag-list list-wrap">
