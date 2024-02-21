@@ -55,7 +55,7 @@
                             </div>
                             {% if latest_products %}
                             <div class="widget">
-                                <h4 class="sidebar-title">LATEST PRODUCTS</h4>
+                                <h4 class="sidebar-title">LATEST VIEWED PRODUCTS</h4>
                                 <div class="lp-post-list">
                                     <ul class="lp-post-item list-wrap">
                                         {% for product in latest_products %}
@@ -151,7 +151,7 @@
                                                     <span class="total-rating">(20)</span>
                                                 </div>
                                                 <div class="shop-content-bottom">
-                                                    <a href="#" class="cart"><i class="flaticon-shopping-cart-1"></i></a>
+                                                    <a  data-product-id="{{ good.id }}" class="cart"><i class="flaticon-shopping-cart-1"></i></a>
                                                     <a href="#" class="btn btn-two">Buy Now</a>
                                                 </div>
                                             </div>
@@ -193,6 +193,8 @@
                 </div>
             </div>
         </div>
+
+        {% csrf_token %}
         {% endblock content %}
         <!-- main-area-end -->
 
