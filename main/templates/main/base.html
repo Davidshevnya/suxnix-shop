@@ -66,52 +66,50 @@
 
                                         <li><a href="{% url "shop:good_list" %}">Shop</a></li>
                                         
-                                        <li><a href="{% url "main:contacts" %}">contacts</a></li>
+                                       <li><a href="{% url "main:contacts" %}">contacts</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-action d-none d-sm-block">
                                     <ul>
+                                        {% if not current_url %}
                                         <li class="header-shop-cart">
-                                            <a href="#" class="cart-count"><i class="flaticon-shopping-cart"></i>
-                                                <span class="mini-cart-count">2</span>
+                                            <a href="{%  url 'cart:cart_detail' %}" class="cart-count"><i class="flaticon-shopping-cart"></i>
+                                                <span class="mini-cart-count">{{ cart_len }}</span>
                                             </a>
                                             <div class="header-mini-cart">
                                                 <ul class="woocommerce-mini-cart cart_list product_list_widget list-wrap">
-                                                    <li class="woocommerce-mini-cart-item d-flex align-items-center">
-                                                        <a href="#" class="remove remove_from_cart_button">×</a>
+                                                    {% if cart_len > 0 %}
+                                                    {% for item in cart %}
+                                                    <li  id="cart-item-{{ item.product.id }}" class="woocommerce-mini-cart-item d-flex align-items-center">
+                                                        <a data-product-id="{{ item.product.id }}" class="remove remove_from_cart_button">×</a>
                                                         <div class="mini-cart-img">
-                                                            <img src="{% static "img/products/cart_p01.jpg" %}" alt="Product">
+                                                            <img src="{{ item.product.image_url }}" alt="Product">
                                                         </div>
                                                         <div class="mini-cart-content">
-                                                            <h4 class="product-title"><a href="shop-details.html">Antiaging and Longevity</a></h4>
-                                                            <div class="mini-cart-price">1 ×
-                                                                <span class="woocommerce-Price-amount amount">$49</span>
+                                                            <h4 class="product-title"><a href="{{ item.product.url }}">{{ item.product.title }}</a></h4>
+                                                            <div class="mini-cart-price">{{ item.quantity }} ×
+                                                                <span class="woocommerce-Price-amount amount">${{ item.price }}</span>
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="woocommerce-mini-cart-item d-flex align-items-center">
-                                                        <a href="#" class="remove remove_from_cart_button">×</a>
-                                                        <div class="mini-cart-img">
-                                                            <img src="{% static "img/products/cart_p02.jpg" %}" alt="Product">
-                                                        </div>
-                                                        <div class="mini-cart-content">
-                                                            <h4 class="product-title"><a href="shop-details.html">Branched Chain Amino Acids</a></h4>
-                                                            <div class="mini-cart-price">2 ×
-                                                                <span class="woocommerce-Price-amount amount">$69</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    {% endfor %}
+                                                    {% else %}
+                                                    <h4>Cart is empty</h4>
+                                                    {% endif %}
+                                                   
                                                 </ul>
-                                                <p class="woocommerce-mini-cart__total">
+                                                <p  {% if not cart_len %}style="display:none;"{% endif %} class="woocommerce-mini-cart__total">
                                                     <strong>Subtotal:</strong>
-                                                    <span class="woocommerce-Price-amount">$149</span>
+                                                    <span  id="totalPrice" class="woocommerce-Price-amount subtotal-cart">${{ cart_total_price }}</span>
                                                 </p>
+                                                
                                                 <p class="checkout-link">
-                                                    <a href="shop-details.html" class="button wc-forward">View cart</a>
-                                                    <a href="shop-details.html" class="button checkout wc-forward">Checkout</a>
+                                                <a href="{% url 'cart:cart_detail' %}" class="button wc-forward">View cart</a>
+                                                <a  {% if not cart_len %}style="display:none;"{% endif %} href="shop-details.html" class="button checkout wc-forward">Checkout</a>
                                                 </p>
                                             </div>
                                         </li>
+                                        {% endif %}
                                         <li class="header-search"><a href="#"><i class="flaticon-search"></i></a></li>
                                         <li class="offCanvas-btn d-none d-xl-block"><a href="#" class="navSidebar-button"><i class="flaticon-layout"></i></a>
                                         </li>

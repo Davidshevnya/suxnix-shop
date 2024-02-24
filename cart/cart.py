@@ -61,7 +61,8 @@ class Cart(object):
 
 
     def __len__(self):
-        return sum(i['quantity'] for i in self.cart.values())
+    #    return sum(i['quantity'] for i in self.cart.values())
+        return len(self.cart)
 
 
     def get_total_price(self):

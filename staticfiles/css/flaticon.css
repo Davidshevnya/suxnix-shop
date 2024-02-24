@@ -46,6 +46,7 @@ i[class*="flaticon-"] {
 }
 .flaticon-shopping-cart-1:before {
     content: "\f108";
+    cursor: pointer;
 }
 .flaticon-left-arrow:before {
     content: "\f109";

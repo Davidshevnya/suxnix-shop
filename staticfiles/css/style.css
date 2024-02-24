@@ -478,6 +478,7 @@ label {
 	background-color: #FAA432;
 	color: #fff;
 	box-shadow: 0px 5px 12.09px 0.91px rgba(71, 51, 127, 0.14);
+    cursor: pointer;
 }
 .header-action > ul li.offCanvas-btn a {
 	display: flex;
