@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 
-{% block title %}Корзина пользователя{% endblock title %}
+{% block title %}Cart{% endblock title %}
 {% block content %}
     <style>
 .btn {
@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h2 class="mb-0">Корзина</h2>
+                <h2 class="mb-0">Cart</h2>
             </div>
             
             <div class="card-body">
@@ -41,11 +41,16 @@
             </div>
         </div>
         <div class="text-center mt-3">
-            <button type="button" class="btn btn-success">Оформити замовлення</button>
+            <button type="button" class="btn btn-success">Checkout</button>
         </div>
     </div>
     {% else %}
-    <h3 align="center">Корзина пуста</h3>
+    <h3 align="center">The cart is empty, please return to shop and add good in cart</h3>
+    <a href="{% url 'shop:good_list' %}">
+        <div class="text-center mt-3">
+            <button type="button" class="btn btn-success">Return to shop</button>
+        </div>
+    </a>
     {% endif %}
 {% csrf_token %}   
 {% endblock content %}
