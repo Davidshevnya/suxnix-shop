@@ -195,20 +195,20 @@
             </div>
         </div>
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-        <img src="{% static "img/favicon.png" %}" class="rounded me-2" alt="...">
-      <strong class="me-auto">Suxnix</strong>
-      
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
-    </div>
-    <div class="toast-body">
-        You success added product in cart
-    </div>
-  </div>
-</div>
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="{% static "img/favicon.png" %}" class="rounded me-2" alt="...">
+                <strong class="me-auto">Suxnix</strong>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                </div>
+                <div class="toast-body">
+                     You success added product in cart
+                </div>
+            </div>
+        </div>
 
-        {% csrf_token %}
+        
         {% endblock content %}
         <!-- main-area-end -->
 
